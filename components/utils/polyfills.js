@@ -1,0 +1,7 @@
+import "core-js/features/array/from"
+import "core-js/features/array/iterator"
+import "core-js/features/array/find-index"
+import "core-js/features/map"
+import "core-js/features/string/starts-with"
+import "core-js/features/string/includes"
+import "core-js/features/symbol"

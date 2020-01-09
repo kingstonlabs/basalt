@@ -1,15 +1,26 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks"
+import { Heading } from "./index"
+
+<Meta title="MDX|Heading" component={Heading} />
+
+
 # Heading
 
 A heading at a specified level.
 
-<!-- example -->
-```jsx
-import defaultTheme from "./theme.module.css";
+<Preview>
+  <Story name="all checkboxes">
+    <form>
+      <Heading level={0}>Level 0</Heading>
+      <Heading level={2}>Level 2</Heading>
+      <Heading level={3}>Level 3</Heading>
+    </form>
+  </Story>
+</Preview>
 
-<Heading level={3} theme={defaultTheme}>Level 3 Heading</Heading>
-```
 
 If you want to provide a theme via context, the component key is `ATHeading`.
+
 
 ## Properties
 

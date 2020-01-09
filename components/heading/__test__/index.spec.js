@@ -1,7 +1,7 @@
 import React from "react"
 import { shallow } from "enzyme"
 
-import Heading from "../Heading"
+import { Heading } from "../Heading"
 
 
 test("Heading renders an h1 with text", () => {

@@ -1,4 +1,6 @@
 const createCompiler = require("@storybook/addon-docs/mdx-compiler-plugin");
+const path = require("path");
+
 
 module.exports = async ({ config }) => {
   config.module.rules.push({
@@ -19,6 +21,36 @@ module.exports = async ({ config }) => {
       },
     ],
   });
+
+  config.module.rules.find(
+    rule => rule.test.toString() === "/\\.css$/",
+  ).exclude = /\.module\.css$/;
+
+  config.module.rules.push({
+    test: /\.module\.css$/,
+    use: [
+      "style-loader",
+      {
+        loader: "css-loader",
+        options: {
+          modules: {
+            localIdentName: '[name]__[local]___[hash:base64:5]',
+          },
+          sourceMap: true,
+          importLoaders: 1,
+        },
+      },
+      {
+        loader: "postcss-loader",
+        options: {
+          config: {
+            path: path.join(__dirname, "./postcss.config.js")
+          }
+        }
+      }
+    ],
+  });
+
   config.module.rules.push({
     test: /\.(stories|story)\.[tj]sx?$/,
     loader: require.resolve("@storybook/source-loader"),

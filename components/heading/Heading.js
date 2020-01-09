@@ -1,35 +1,61 @@
 import PropTypes from "prop-types"
 import React from "react"
+import classnames from "classnames"
+
 import { themr } from "@friendsofreactjs/react-css-themr"
 import { HEADING } from "../identifiers"
 
 
+const levelStyles = {
+  0: "alpha",
+  1: "alpha",
+  2: "beta",
+  3: "gamma",
+  4: "delta",
+  5: "epsilon",
+  6: "zeta",
+}
+
+
 const Heading = ({
-  level = 1,
-  modifiers = [],
+  centred = false,
   children,
+  level = 1,
+  noMargin = false,
+  style = null,
   theme,
 }) => {
   /*
   * Renders a heading of a given level - level 0 renders a span tag
   */
-  const classModifiers = modifiers.map(
-    (modifier) => `heading--${modifier}`,
-  ).join(" ")
-  const Tag = (level === "0") ? "span" : `h${level}`
+  const Tag = (level === 0) ? "span" : `h${level}`
+  const levelStyle = style || levelStyles[level] || null
+
+  const className = classnames(
+    theme.heading,
+    theme[levelStyle],
+    {
+      [theme.noMargin]: noMargin,
+      [theme.centred]: centred,
+    },
+  )
 
   return (
-    <Tag className={`heading ${classModifiers} ${theme.heading}`}>{children}</Tag>
+    <Tag className={className}>{children}</Tag>
   )
 }
 
 
 Heading.propTypes = {
+  centred: PropTypes.bool,
   children: PropTypes.node,
-  level: PropTypes.number,
-  modifiers: PropTypes.arrayOf(PropTypes.string),
+  level: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6]),
+  noMargin: PropTypes.bool,
+  style: PropTypes.string,
   theme: PropTypes.shape({
+    centred: PropTypes.string,
     heading: PropTypes.string,
+    noMargin: PropTypes.string,
   }),
 }
 

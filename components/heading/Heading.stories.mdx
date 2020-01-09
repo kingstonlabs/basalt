@@ -1,0 +1,150 @@
+import { Meta, Story, Preview } from "@storybook/addon-docs/blocks"
+import { Heading } from "./index"
+
+<Meta title="Heading" component={Heading} />
+
+
+# Heading
+
+A heading at a specified level.
+
+<Preview>
+  <Story name="Demo">
+    <Heading level={1} style={"beta"} centred={true} noMargin={false}>
+      Simple heading
+    </Heading>
+  </Story>
+</Preview>
+
+## Properties
+
+| Name             | Type                  | Default | Description|
+|:-----------------|:----------------------|:--------|:-----------|
+| `children`       | `Node`                | `null`  | The heading content.|
+| `level`          | `Integer`             | 1       | The heading level ie h1, h2, h3 a level of 0 implements a span tag.|
+| `style`          | `String`              | `null`  | Heading style taken from theme. If no style is specified, one will be selected depending on level: `alpha` for `0` and `1`, `beta` for `2`, `gamma` for `3`, `delta` for `4`, `epsilon` for `5` and `zeta` for `6`.|
+| `noMargin`       | `Boolean`             | `false` | Select `true` to remove margins.|
+| `centred`        | `Boolean`             | `false` | Select `true` to centre.|
+
+
+## Theme
+
+If you want to provide a theme via context, the component key is `ATHeading`.
+
+| Name             | Description|
+|:-----------------|:-----------|
+| `centred`        | Centred heading                    |
+| `noMargin`       | Heading with no margin             |
+| `hero`           | Large hero heading for page header |
+| `hero-leader`    | Leader for a hero haeding          |
+| `hero-subtitle`  | Subtitle to a hero heading         |
+| `hero-date`      | Date for a hero heading            |
+| `alpha`          | Level 1 heading                    |
+| `alpha-leader`   | Leader to a level 1 heading        |
+| `alpha-subtitle` | Subtitle to a level 1 heading      |
+| `alpha-date`     | Date for a level 1 heading         |
+| `beta`           | Level 2 heading                    |
+| `beta-leader`    | Leader to a level 2 heading        |
+| `beta-subtitle`  | Subtitle to a level 2 heading      |
+| `beta-date`      | Date for a level 2 heading         |
+| `gamma`          | Level 3 heading                    |
+| `delta`          | Level 4 heading                    |
+| `epsilon`        | Level 5 heading                    |
+| `zeta`           | Level 6 heading                    |
+
+
+## Stories
+
+
+### By Level
+
+<Preview>
+  <Story name="By level">
+    <div>
+      <Heading level={0}>Heading level 0</Heading>
+      <Heading level={1}>Heading level 1</Heading>
+      <Heading level={2}>Heading level 2</Heading>
+      <Heading level={3}>Heading level 3</Heading>
+      <Heading level={4}>Heading level 4</Heading>
+      <Heading level={5}>Heading level 5</Heading>
+      <Heading level={6}>Heading level 6</Heading>
+    </div>
+  </Story>
+</Preview>
+
+
+### Centred
+
+<Preview>
+  <Story name="Centred">
+    <Heading level={0} centred={true}>Centred heading</Heading>
+  </Story>
+</Preview>
+
+
+### No Margin
+
+<Preview>
+  <Story name="No Margin">
+    <div>
+      <Heading level={0} noMargin={true}>Heading with no margin</Heading>
+      <Heading level={0} noMargin={true}>No gap in between</Heading>
+    </div>
+  </Story>
+</Preview>
+
+
+### Hero Styles
+
+<Preview>
+  <Story name="Styles - Hero">
+    <div>
+      <Heading level={0} style={"hero-leader"}>Hero Leader</Heading>
+      <Heading level={1} style={"hero"}>Hero Heading</Heading>
+      <Heading level={0} style={"hero-date"}>31 October 2020</Heading>
+      <Heading level={0} style={"hero-subtitle"}>Hero Subtitle</Heading>
+    </div>
+  </Story>
+</Preview>
+
+
+### Alpha Styles
+
+<Preview>
+  <Story name="Styles - Alpha">
+    <div>
+      <Heading level={0} style={"alpha-leader"}>Alpha Leader</Heading>
+      <Heading level={1} style={"alpha"}>Alpha Heading</Heading>
+      <Heading level={0} style={"alpha-date"}>31 October 2020</Heading>
+      <Heading level={0} style={"alpha-subtitle"}>Alpha Subtitle</Heading>
+    </div>
+  </Story>
+</Preview>
+
+
+### Beta Styles
+
+<Preview>
+  <Story name="Styles - Beta">
+    <div>
+      <Heading level={0} style={"beta-leader"}>Beta Leader</Heading>
+      <Heading level={1} style={"beta"}>Beta Heading</Heading>
+      <Heading level={0} style={"beta-date"}>31 October 2020</Heading>
+      <Heading level={0} style={"beta-subtitle"}>Beta Subtitle</Heading>
+    </div>
+  </Story>
+</Preview>
+
+
+### Low-level Styles
+
+<Preview>
+  <Story name="Styles - Gamma to Zeta">
+    <div>
+      <Heading level={3} style={"gamma"}>Gamma Heading</Heading>
+      <Heading level={3} style={"delta"}>Delta Heading</Heading>
+      <Heading level={3} style={"epsilon"}>Epsilon Heading</Heading>
+      <Heading level={3} style={"zeta"}>Zeta Heading</Heading>
+    </div>
+  </Story>
+</Preview>

@@ -1,5 +1,21 @@
 .heading {
     display: block;
     margin: 0.5em 0;
+    color: blue;
+}
+
+.centred {
+  text-align: center;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.alpha {
     color: red;
+}
+
+.alpha-leader {
+    color: green;
 }

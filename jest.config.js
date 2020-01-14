@@ -6,7 +6,7 @@ module.exports = {
     "\\.css$": "identity-obj-proxy",
   },
   modulePaths: [
-    "<rootDir>/components",
+    "<rootDir>/src/components",
   ],
   setupFiles: [
     "./jest.setup.js",

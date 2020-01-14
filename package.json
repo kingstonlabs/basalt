@@ -4,9 +4,8 @@
   "homepage": "https://www.kingstonlabs.com/",
   "license": "MIT",
   "version": "0.0.1",
-  "main": "./lib",
-  "module": "./source",
-  "typings": "./index.d.ts",
+  "main": "dist/acacia.js",
+  "module": "./src",
   "author": {
     "email": "tom@kingstonlabs.com",
     "name": "Tom Kingston",
@@ -26,12 +25,10 @@
     "node": ">= 6"
   },
   "scripts": {
-    "babel": "babel ./source --out-dir ./lib",
-    "build": "cross-env NODE_ENV=production gulp",
-    "clean": "rimraf ./lib",
-    "css": "cpx \"./source/**/*.css\" ./lib",
+    "build": "webpack --mode production",
+    "clean": "rimraf ./dist",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "stylelint ./source/**/*.css",
+    "lint:css": "stylelint ./src/**/*.css",
     "lint:js": "eslint ./ --ext .js",
     "lint:fix:js": "eslint --fix ./ --ext .js",
     "lint:staged": "lint-staged",
@@ -39,19 +36,12 @@
     "prebuild": "npm run clean",
     "prepare": "npm run build",
     "release": "bumped release",
-    "start": "cross-env NODE_ENV=development UV_THREADPOOL_SIZE=100 node ./server",
-    "storybook": "start-storybook",
-    "styleguide": "styleguidist server",
-    "test": "jest",
-    "test:watch": "jest --watch --no-watchman",
-    "ts": "tsc",
-    "tsd": "cpx \"./source/**/*.d.ts\" ./lib"
+    "start": "start-storybook"
   },
   "dependencies": {
     "@babel/runtime": "^7.7.6",
     "@friendsofreactjs/react-css-themr": "^4.0.0",
     "@types/prop-types": "^15.7.3",
-    "core-js": "^3.5.0",
     "npx": "^10.2.0",
     "react-style-proptype": "^3.2.2",
     "react-transition-group": "^4.3.0"
@@ -139,15 +129,14 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.12.18",
-    "react-styleguidist": "^10.3.2",
     "react-test-renderer": "^16.12.0",
     "rimraf": "^3.0.0",
     "style-loader": "^1.0.1",
     "stylelint": "^12.0.0",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-order": "^3.1.1",
-    "typescript": "^3.7.3",
     "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
   }

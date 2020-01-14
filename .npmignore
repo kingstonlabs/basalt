@@ -2,8 +2,6 @@
 .eslintignore
 .*.yml
 .editorconfig
-server.js
 tests.webpack.js
 webpack.config.*
-docs
-spec
+.storybook

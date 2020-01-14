@@ -1,21 +1,15 @@
-const pkg = require("../package");
+const pkg = require("./package");
 const path = require("path");
 const webpack = require("webpack");
 const ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
 
 module.exports = {
-  target: "web",
-  mode: "development",
-  context: path.join(__dirname, "../"),
-  devtool: "source-map",
-  entry: {
-    spec: ["webpack-hot-middleware/client", "./spec/index.js"]
-  },
-
+  entry: "./src/index.js",
   output: {
-    path: path.join(__dirname, "build"),
-    filename: "[name].js",
-    publicPath: "/build/"
+    path: path.resolve(__dirname, "dist/"),
+    publicPath: "",
+    filename: "acacia.js",
+    libraryTarget: 'umd',
   },
   resolve: {
     extensions: [".js", ".css", ".json"],
@@ -25,16 +19,13 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: "babel-loader",
-        include: [
-          path.join(__dirname, "../components")
-        ]
+        use: "babel-loader"
       },
       {
         test: /\.css$/,
         include: /node_modules/,
         exclude: [
-          path.join(__dirname, "../components")
+          path.join(__dirname, "./src")
         ],
         use: [
           ExtractCssChunks.loader,
@@ -43,9 +34,6 @@ module.exports = {
       },
       {
         test: /\.module\.css$/,
-        include: [
-          path.join(__dirname, "../components")
-        ],
         exclude: /node_modules/,
         use: [
           "style-loader",
@@ -77,7 +65,6 @@ module.exports = {
       hot: true,
       cssModules: true
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("development"),
       VERSION: JSON.stringify(pkg.version)

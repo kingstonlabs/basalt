@@ -95,7 +95,7 @@ In this minimal example, we import a `Button` with styles already bundled:
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'acacia-toolbox/lib/button';
+import { Button } from 'basalt/lib/button';
 
 ReactDOM.render(
   <Button label="Hello World!" />,
@@ -106,11 +106,11 @@ ReactDOM.render(
 >**Note:** if you use it with Create React App, you need to make this additional change:
 >
 >```diff
->- import {Button} from 'acacia-toolbox/lib/button';
->+ import Button from 'acacia-toolbox/lib/button/Button';
+>- import {Button} from 'basalt/lib/button';
+>+ import Button from 'basalt/lib/button/Button';
 >```
 
-Take into account that any required style will be included in the final CSS so your final CSS would include `Button` styles in this case. It's more efficient to import components this way (`from 'acacia-toolbox/lib/button'`) (or with raw imports) because if you require from the project root (i.e. `from 'react-toolbox'`), every stylesheet of React Toolbox will be included, even if you don't use it.
+Take into account that any required style will be included in the final CSS so your final CSS would include `Button` styles in this case. It's more efficient to import components this way (`from 'basalt/lib/button'`) (or with raw imports) because if you require from the project root (i.e. `from 'react-toolbox'`), every stylesheet of React Toolbox will be included, even if you don't use it.
 
 ## Importing components
 
@@ -132,7 +132,7 @@ As you can see in the previous block, each folder includes: a Javascript file fo
 If you import from the index file, the imported component comes with all dependencies and themes already required and injected for you. This means that the CSS for each dependency will be bundled in your final CSS automatically and the component markup includes the classnames to be styled. For example:
 
 ```js
-import { AppBar } from 'acacia-toolbox/lib/app_bar';
+import { AppBar } from 'basalt/lib/app_bar';
 ```
 
 ### Raw component
@@ -140,7 +140,7 @@ import { AppBar } from 'acacia-toolbox/lib/app_bar';
 If you import from the component definition, the imported component is bundled with its dependencies, but it does not include any styles. This means no CSS will be bundled, and the component markup will **not** include any classname. It's your responsibility to provide a theme to the component to be properly styled. You can do so via properties or context. For example:
 
 ```js
-import { AppBar } from 'acacia-toolbox/lib/app_bar/AppBar.js';
+import { AppBar } from 'basalt/lib/app_bar/AppBar.js';
 ```
 
 ## Customizing components
@@ -151,7 +151,7 @@ If the component already has a theme injected, the properties you pass will be m
 
 ```js
 import React from 'react';
-import { AppBar } from 'acacia-toolbox/lib/app_bar';
+import { AppBar } from 'basalt/lib/app_bar';
 import theme from './PurpleAppBar.css';
 
 const PurpleAppBar = (props) => (

@@ -1,10 +1,10 @@
 {
-  "name": "@kingston-labs/acacia-toolbox",
+  "name": "@kingston-labs/basalt",
   "description": "Standard set of Kingston Labs React components",
   "homepage": "https://www.kingstonlabs.com/",
   "license": "MIT",
   "version": "0.0.1",
-  "main": "dist/acacia.js",
+  "main": "dist/basalt.js",
   "module": "./src",
   "author": {
     "email": "tom@kingstonlabs.com",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kingstonlabs/acacia-toolbox.git"
+    "url": "git+https://github.com/kingstonlabs/basalt.git"
   },
   "keywords": [
     "components",

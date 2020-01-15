@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist/"),
     publicPath: "",
-    filename: "acacia.js",
+    filename: "basalt.js",
     libraryTarget: 'umd',
   },
   resolve: {
